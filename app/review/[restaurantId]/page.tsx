@@ -12,6 +12,9 @@ const RATING_LABELS: Record<number, string> = {
   5: "Excellent",
 };
 
+const CARD =
+  "rounded-2xl border border-black/[0.04] bg-white shadow-[0_1px_2px_rgba(20,20,20,0.04),0_4px_16px_rgba(20,20,20,0.05)]";
+
 export default function ReviewPage() {
   const params = useParams<{ restaurantId: string }>();
   const router = useRouter();
@@ -86,19 +89,19 @@ export default function ReviewPage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto w-full max-w-[560px] px-6 pb-16 pt-6">
-        <section className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
-          <h1 className="text-xl font-bold tracking-tight">
+      <main className="mx-auto w-full max-w-[560px] px-6 pb-16 pt-5">
+        <section className={`${CARD} rise p-6`}>
+          <p className="text-xs font-bold uppercase tracking-widest text-stone-400">
+            Writing a review for
+          </p>
+          <h1 className="mt-1 text-xl font-extrabold tracking-tight">
             {restaurantName ?? "Loading…"}
           </h1>
-          <p className="mt-0.5 text-sm text-stone-500">
-            Share your dining experience
-          </p>
 
-          <form onSubmit={handleSubmit} className="mt-6">
+          <form onSubmit={handleSubmit} className="mt-7">
             <fieldset aria-describedby={error ? "form-error" : undefined}>
-              <legend className="text-sm font-semibold">Rate it</legend>
-              <div className="mt-3 flex gap-2">
+              <legend className="text-sm font-bold">Rate it</legend>
+              <div className="mt-3.5 flex justify-between gap-2">
                 {[1, 2, 3, 4, 5].map((value) => (
                   <button
                     key={value}
@@ -106,7 +109,7 @@ export default function ReviewPage() {
                     onClick={() => setRating(value)}
                     aria-pressed={rating === value}
                     aria-label={`${value} star${value > 1 ? "s" : ""}`}
-                    className={`flex h-12 w-12 items-center justify-center rounded-lg border text-xl transition-colors ${
+                    className={`flex h-[52px] flex-1 items-center justify-center rounded-xl border text-2xl transition-all active:scale-90 ${
                       rating >= value
                         ? "border-rating bg-rating/10 text-rating"
                         : "border-stone-200 bg-white text-stone-300 hover:border-stone-300 hover:text-stone-400"
@@ -116,17 +119,20 @@ export default function ReviewPage() {
                   </button>
                 ))}
               </div>
-              {rating >= 1 ? (
-                <p className="mt-2 h-5 text-sm font-semibold text-rating">
-                  {RATING_LABELS[rating]}
-                </p>
-              ) : (
-                <p className="mt-2 h-5" />
-              )}
+              <div className="mt-2.5 h-6 text-center">
+                {rating >= 1 && (
+                  <p
+                    key={rating}
+                    className="rise inline-block rounded-full bg-rating/10 px-3 py-1 text-sm font-bold text-rating"
+                  >
+                    {RATING_LABELS[rating]}
+                  </p>
+                )}
+              </div>
             </fieldset>
 
-            <div className="mt-5">
-              <label htmlFor="comment" className="text-sm font-semibold">
+            <div className="mt-4">
+              <label htmlFor="comment" className="text-sm font-bold">
                 Your review
               </label>
               <textarea
@@ -134,16 +140,20 @@ export default function ReviewPage() {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 rows={4}
+                maxLength={500}
                 placeholder="How was the food, the service, the vibe?"
-                className="mt-2.5 w-full resize-none rounded-lg border border-stone-200 bg-white px-4 py-3 text-base leading-relaxed placeholder:text-stone-400 focus:border-brand focus:outline-none"
+                className="mt-2.5 w-full resize-none rounded-xl border border-stone-200 bg-white px-4 py-3 text-base leading-relaxed transition-shadow placeholder:text-stone-400 focus:border-brand focus:ring-4 focus:ring-brand/10 focus:outline-none"
               />
+              <p className="mt-1 text-right text-xs text-stone-400">
+                {comment.length}/500
+              </p>
             </div>
 
             {error && (
               <p
                 id="form-error"
                 role="alert"
-                className="mt-5 rounded-lg bg-red-50 px-3 py-2.5 text-sm font-medium text-red-700"
+                className="rise mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700"
               >
                 {error}
               </p>
@@ -152,12 +162,16 @@ export default function ReviewPage() {
             <button
               type="submit"
               disabled={!canSubmit}
-              className="mt-6 w-full rounded-lg bg-brand py-3 text-sm font-bold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:bg-stone-200 disabled:text-stone-400"
+              className="mt-6 h-12 w-full rounded-xl bg-brand text-sm font-bold text-white shadow-lg shadow-brand/25 transition-all hover:bg-brand-dark active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-stone-200 disabled:text-stone-400 disabled:shadow-none"
             >
               {submitting ? "Submitting…" : "Submit Review"}
             </button>
           </form>
         </section>
+
+        <footer className="mt-8 text-center text-xs text-stone-400">
+          Your review is public and cannot be edited or deleted.
+        </footer>
       </main>
     </>
   );
