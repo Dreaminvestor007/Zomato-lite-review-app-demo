@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,17 +7,17 @@
 }
 
 html {
-  background: #ffffff;
+  background: #E23744;
 }
 
 body {
   min-height: 100vh;
-  background: #ffffff;
-  color: #1c1c1c;
+  background: #E23744;
+  color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #ffecec;
-  color: #1c1c1c;
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }

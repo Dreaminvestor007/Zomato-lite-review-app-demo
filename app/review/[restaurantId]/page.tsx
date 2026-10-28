@@ -77,20 +77,20 @@ export default function ReviewPage() {
   }
 
   return (
-    <main className="min-h-screen bg-paper px-5 py-12 text-ink sm:py-20">
-      <div className="mx-auto w-full max-w-[560px]">
+    <main className="min-h-screen bg-white px-5 py-8 text-ink sm:py-12">
+      <div className="mx-auto w-full max-w-[680px]">
         <Link
           href={`/restaurant/${restaurantId}`}
-          className="text-sm text-muted underline decoration-line underline-offset-4 transition-colors hover:text-accent"
+          className="text-sm text-muted transition-colors hover:text-zred"
         >
-          Back to restaurant
+          ← Back to restaurant
         </Link>
 
-        <h1 className="mt-8 font-serif text-4xl leading-tight tracking-tight sm:text-5xl">
-          {restaurantName ?? "Review Ludhiana Burrito"}
+        <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+          {restaurantName ?? "Ludhiana Burrito"}
         </h1>
-        <p className="mt-3 text-sm leading-6 text-muted">
-          Tell people what you thought.
+        <p className="mt-2 text-sm leading-6 text-muted">
+          Share your experience
         </p>
 
         <form onSubmit={handleSubmit} className="mt-10 space-y-8">
@@ -112,8 +112,8 @@ export default function ReviewPage() {
                     aria-checked={rating === value}
                     aria-label={`${value} ${value === 1 ? "star" : "stars"}`}
                     onClick={() => setRating(value)}
-                    className={`text-4xl leading-none transition-colors ${
-                      selected ? "text-accent" : "text-line hover:text-accent"
+                    className={`text-3xl leading-none transition-colors ${
+                      selected ? "text-zgreen" : "text-[#c9c9c9] hover:text-zgreen"
                     }`}
                   >
                     ★
@@ -134,16 +134,16 @@ export default function ReviewPage() {
               id="comment"
               value={comment}
               onChange={(event) => setComment(event.target.value)}
-              rows={5}
-              placeholder="What was good? What could be better?"
-              className="mt-3 w-full resize-none rounded-xl border border-line bg-white/50 px-4 py-3 text-base leading-7 outline-none transition-colors placeholder:text-muted/70 focus:border-accent"
+              rows={4}
+              placeholder="Tell us about your experience"
+              className="mt-3 w-full resize-none rounded-lg border border-line bg-white px-4 py-3 text-base leading-7 outline-none transition-colors placeholder:text-muted/70 focus:border-zred"
             />
           </div>
 
           {error && (
             <p
               role="alert"
-              className="rounded-xl border border-accent/30 bg-accentSoft px-4 py-3 text-sm text-accent"
+              className="rounded-lg border border-zred/30 bg-accentSoft px-4 py-3 text-sm text-zred"
             >
               {error}
             </p>
@@ -152,7 +152,7 @@ export default function ReviewPage() {
           <button
             type="submit"
             disabled={!canSubmit}
-            className="w-full rounded-xl bg-accent px-5 py-3.5 text-sm font-medium text-paper transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:bg-line disabled:text-muted"
+            className="w-full rounded-xl bg-white px-5 py-3.5 text-sm font-medium text-accent transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:bg-white/60 disabled:text-accent/70"
           >
             {submitting ? "Submitting..." : "Submit review"}
           </button>
