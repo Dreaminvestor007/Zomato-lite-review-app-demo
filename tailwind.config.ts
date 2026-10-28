@@ -8,12 +8,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: "#f7f4ee",
-        ink: "#1c1b19",
-        muted: "#716c64",
-        line: "#d8d1c5",
-        accent: "#a84b1f",
-        accentSoft: "#f1e5d8",
+        paper: "#ffffff",
+        ink: "#1c1c1c",
+        muted: "#686b78",
+        line: "#e8e8e8",
+        accent: "#e23744",
+        accentSoft: "#fce9eb",
+        zred: "#e23744",
+        zorange: "#f4a261",
+        zgreen: "#24963f",
       },
       fontFamily: {
         sans: [
