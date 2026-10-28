@@ -8,12 +8,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: "#E23744",
-        ink: "#ffffff",
-        muted: "#ffe5e7",
-        line: "rgba(255, 255, 255, 0.4)",
-        accent: "#ffffff",
-        accentSoft: "rgba(255, 255, 255, 0.16)",
+        paper: "#ffffff",
+        ink: "#1c1c1c",
+        muted: "#696969",
+        line: "#e8e8e8",
+        accent: "#E23744",
+        accentSoft: "#fef2f2",
         zred: "#E23744",
         zorange: "#f4a261",
         zgreen: "#24963f",

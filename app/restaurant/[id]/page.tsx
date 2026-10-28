@@ -161,9 +161,9 @@ export default function RestaurantPage() {
         )}
 
         <Link
-          href={`/review/${id}`}
-          className="mt-10 inline-flex rounded-xl bg-white px-5 py-3.5 text-sm font-medium text-accent transition-opacity hover:opacity-90"
-        >
+              href={`/review/${id}`}
+              className="mt-10 inline-flex rounded-xl bg-accent px-5 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            >
           Add a review
         </Link>
       </div>

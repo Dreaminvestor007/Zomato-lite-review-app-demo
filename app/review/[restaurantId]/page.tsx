@@ -152,7 +152,7 @@ export default function ReviewPage() {
           <button
             type="submit"
             disabled={!canSubmit}
-            className="w-full rounded-xl bg-white px-5 py-3.5 text-sm font-medium text-accent transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:bg-white/60 disabled:text-accent/70"
+            className="w-full rounded-xl bg-accent px-5 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
           >
             {submitting ? "Submitting..." : "Submit review"}
           </button>

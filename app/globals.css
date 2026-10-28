@@ -7,17 +7,17 @@
 }
 
 html {
-  background: #E23744;
+  background: #ffffff;
 }
 
 body {
   min-height: 100vh;
-  background: #E23744;
-  color: #ffffff;
+  background: #ffffff;
+  color: #1c1c1c;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: #fef2f2;
+  color: #1c1c1c;
 }
