@@ -89,11 +89,11 @@ export default function RestaurantPage() {
   return (
     <main className="min-h-screen bg-white px-5 py-8 text-ink sm:py-12">
       <div className="mx-auto w-full max-w-[680px]">
-        <header className="mb-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zred">
-            ZOMATO LITE
+        <header className="mb-6 border-b border-line pb-6">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-zred">
+            ZOMATO
           </p>
-          <h1 className="mt-2 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             {restaurant.name}
           </h1>
           <p className="mt-2 text-sm text-muted">
@@ -110,23 +110,23 @@ export default function RestaurantPage() {
           </section>
         ) : (
           <>
-            <section className="mb-8 flex items-center gap-4 rounded-2xl border border-line bg-white px-5 py-4 shadow-sm">
-              <div className="flex h-12 items-center rounded-lg bg-zgreen px-3 text-lg font-semibold text-white">
+            <section className="mb-8 flex items-center gap-4 rounded-lg border border-line bg-white px-5 py-4">
+              <div className="flex h-10 items-center rounded bg-zgreen px-2.5 text-base font-semibold text-white">
                 {restaurant.averageRating} ★
               </div>
               <div>
-                <p className="text-sm font-medium text-ink">Dining Rating</p>
-                <p className="text-sm text-muted">
+                <p className="text-sm font-semibold text-ink">Dining Rating</p>
+                <p className="text-xs text-muted">
                   {restaurant.totalReviews} {restaurant.totalReviews === 1 ? "review" : "reviews"}
                 </p>
               </div>
             </section>
 
             {restaurant.latestReview && (
-              <section className="mb-6 rounded-2xl border border-line bg-white p-5 shadow-sm">
+              <section className="mb-6 rounded-lg border border-line bg-white p-5">
                 <div className="mb-3 flex items-center justify-between">
                   <p className="text-sm font-semibold">Latest review</p>
-                  <span className="rounded-md bg-zgreen px-2 py-1 text-xs font-medium text-white">
+                  <span className="rounded bg-zgreen px-2 py-0.5 text-xs font-semibold text-white">
                     {restaurant.latestReview.rating} ★
                   </span>
                 </div>
@@ -141,12 +141,12 @@ export default function RestaurantPage() {
 
             {restaurant.reviews.length > 0 && (
               <section className="mb-8">
-                <h2 className="mb-3 text-base font-semibold">All reviews</h2>
-                <div className="space-y-4">
+                <h2 className="mb-3 text-base font-semibold">Reviews</h2>
+                <div className="divide-y divide-line rounded-lg border border-line bg-white">
                   {restaurant.reviews.map((review) => (
-                    <article key={review.id} className="rounded-2xl border border-line bg-white p-5 shadow-sm">
+                    <article key={review.id} className="p-5">
                       <div className="mb-2 flex items-center justify-between">
-                        <span className="rounded-md bg-zgreen px-2 py-1 text-xs font-medium text-white">
+                        <span className="rounded bg-zgreen px-2 py-0.5 text-xs font-semibold text-white">
                           {review.rating} ★
                         </span>
                         <ReviewDate value={review.createdAt} />
@@ -161,9 +161,9 @@ export default function RestaurantPage() {
         )}
 
         <Link
-              href={`/review/${id}`}
-              className="mt-10 inline-flex rounded-xl bg-accent px-5 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-            >
+          href={`/review/${id}`}
+          className="inline-flex w-full justify-center rounded bg-zred px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#a71d27] sm:w-auto"
+        >
           Add a review
         </Link>
       </div>

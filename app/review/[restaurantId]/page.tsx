@@ -86,11 +86,11 @@ export default function ReviewPage() {
           ← Back to restaurant
         </Link>
 
-        <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+        <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
           {restaurantName ?? "Ludhiana Burrito"}
         </h1>
         <p className="mt-2 text-sm leading-6 text-muted">
-          Share your experience
+          Write a review
         </p>
 
         <form onSubmit={handleSubmit} className="mt-10 space-y-8">

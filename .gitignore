@@ -5,3 +5,6 @@ out
 .env
 .env*.local
 *.log
+tokens_extracted.txt
+tokens.docx
+
